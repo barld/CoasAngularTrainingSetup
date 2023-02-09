@@ -1,0 +1,26 @@
+<button (click)="onRefresh()">Refresh</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Description</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Distance</th>
+      <th>View</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trip of trips | async">
+      <td>{{trip.id}}</td>
+      <td>{{trip.description}}</td>
+      <td>{{trip.from}}</td>
+      <td>{{trip.to}}</td>
+      <td>{{trip.distance}}</td>
+      <td><a [routerLink]="['/edit-trip', trip.id]">view</a></td>
+      <td><button type="button" (click)="onDelete(trip.id)">X Delete</button></td>
+    </tr>
+  </tbody>
+</table>
