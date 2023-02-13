@@ -1,11 +1,11 @@
 <br />
 <a [routerLink]="['../', (prev$ | async)]">prev </a> <a [routerLink]="['../', (next$ | async)]"> next</a>
 <br />
-<div *ngIf="trip$ | async as trip; else defaultTmpl">
+<div *ngIf="trip$ | async as trip1; else defaultTmpl">
 
-  <app-trip-form (valueChange)="onUpdateTrip($event)" [trip]="trip"></app-trip-form>
+  <app-trip-form (valueChange)="onUpdateTrip($event)" [trip]="trip1"></app-trip-form>
 
-  <button (click)="onUpdate()">Update</button>
+  <button (click)="onUpdate()">Update.</button>
 </div>
 <ng-template #defaultTmpl>Trip not available</ng-template>
 

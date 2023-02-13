@@ -1,7 +1,13 @@
-import { Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
-import { OnDestroy } from '@angular/core';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  EventEmitter,
+  OnDestroy,
+  Output
+} from '@angular/core';
 import { FormControlStatus, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subject } from 'rxjs/internal/Subject';
@@ -23,7 +29,7 @@ export class TripFormComponent implements OnInit, OnChanges, OnDestroy {
   readonly form = this.fb.group({
     id: this.fb.control(0),
     description: this.fb.control(''),
-    from: this.fb.control(''),
+    from: this.fb.control('', Validators.required),
     to: this.fb.control(''),
     distance: this.fb.control(0),
   });
@@ -49,7 +55,7 @@ export class TripFormComponent implements OnInit, OnChanges, OnDestroy {
     if (changes['trip'] && this.trip) {
       console.log(this.trip) // it is a plain value here
 
-      this.form.patchValue(this.trip)
+      this.form.patchValue(this.trip);
     }
   }
 

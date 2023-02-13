@@ -12,6 +12,7 @@ import { AddTripComponent } from './add-trip/add-trip.component';
 import { EditTripComponent } from './edit-trip/edit-trip.component';
 import { TripFormComponent } from './trip-form/trip-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SubmitButtonComponent } from './submit-button/submit-button.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     OverviewComponent,
     AddTripComponent,
     EditTripComponent,
-    TripFormComponent
+    TripFormComponent,
+    SubmitButtonComponent
   ],
   imports: [
     BrowserModule,

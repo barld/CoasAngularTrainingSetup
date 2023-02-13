@@ -3,6 +3,7 @@ import { BehaviorSubject, EMPTY, Observable, switchMap } from 'rxjs';
 import { Trip } from '../models/trip';
 import { TripService } from '../services/trip.service';
 
+
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -17,16 +18,14 @@ export class OverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.trips = this.refresh.pipe(
-      switchMap(() => this.tripService.getAll())
-    );
+    this.onRefresh();
   }
 
   onRefresh() {
-    this.refresh.next(true);
+    this.trips = this.tripService.getAll()
   }
 
   onDelete(id: number) {
-    this.tripService.delete(id).subscribe(() => this.refresh.next(true));
+    this.tripService.delete(id).subscribe(() => this.onRefresh());
   }
 }
